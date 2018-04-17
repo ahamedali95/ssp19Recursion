@@ -1,0 +1,198 @@
+### INSTRUCTIONS
+#
+# Welcome to the App Academy technical interview. The interview consists
+# of three programming questions of the following 2 types:
+#
+# 2 Solo Programming
+# 1 Pair Programming
+#
+# You will be allotted 15 minutes for each solo programming question.
+# Keep in mind, we accept partial solutions, and overall logic is more
+# important to us than perfect syntax, so try not to stress if your
+# solution is incomplete or imperfect. Take a deep breath and focus on
+# your approach to the next problem.
+#
+# In pair programming, two programmers work together as they alternate
+# between two distinct roles. The DRIVER types at the keyboard, while
+# the NAVIGATOR instructs the driver what to type. For this interview,
+# we will alternate roles halfway through the pairing problem, to give
+# you a chance to both drive and navigate.
+#
+# The key in both solo and pair programming is communication. We want to
+# get a better idea of how you think, so aim to give us a detailed
+# explanation of your approach to each problem. We understand that some
+# people prefer to talk while they come to a solution, while others
+# prefer to walk us through after they've done a bit of work. Either way
+# is fine.
+#
+# We want to evaluate you on your own work, so the interview is
+# closed-book. Please do not consult any outside sources: that includes
+# other programmers, the internet, and any notes / code you may have
+# written previously. Don't run your code in any REPL or interpreter,
+# and don't share these questions or your solutions with anyone else.
+#
+# That said, you may ask your interviewer any questions you may have. We
+# are more than happy to help clarify the question or let you know the
+# right syntax for the language you're using.
+#
+# Good luck!
+
+
+
+
+
+#### Alien Phone Number ####
+# There is a nearby alien planet whose numbers are formatted as
+# "xxxx xxxx" where "x" is any numerical digit (0-9). Write a function
+# that determines whether a given string is a valid alien phone number.
+#
+# constraint: You may not use RegExp.
+#
+# examples:
+# alien_phone_number?('1234 5678') #=> true
+# alien_phone_number?('ar32 t19i) #=> false
+# alien_phone_number?('123 45678') #=> false
+# alien_phone_number?('12345678') #=> false
+# alien_phone_number?('1234 567') #=> false
+# alien_phone_number?('12345 12345') #=> false
+
+function alien_phone_number?(string){
+    
+    var numbers = [0,1,2,3,4,5,6,7,8,9]
+    
+    if (string.length !== 9){
+        return false;
+    }
+    
+    if (string[4] !=== ' '){
+        return false;
+    }
+    
+    for (var i = 0; i < 3; i++){
+        var char1to4 = Number.(string[i]);
+        if (numbers.indexOf(char1to4) === -1){
+          return false;
+     }
+     
+    for (var j = 5; j < 8; j++){
+        var char5to8 = Number.(string[j]);
+        if (numbers.indexOf(char5to8)) === -1){
+            return false;
+        }
+    }
+    
+    }
+    
+    return true;
+}
+
+
+
+
+#### Ping Pong Filter ####
+# Imagine that we have a filter that goes through an array and removes every other
+# element. When it reaches the final element it turns around and does the whole
+# process again, this time going from the end to the start. It repeats this
+# behavior until there is only one element left.
+#
+# For example:
+# Given a starting array [1, 2, 3, 4, 5, 6, 7, 8]
+# We start from the beginning and remove every other element (indicated with !)
+# [!1, 2, !3, 4, !5, 6, !7, 8] = [2, 4, 6, 8]
+# Next we start from the end and remove every other element
+# [2, !4, 6, !8] = [2, 6]
+# Now we start from the beginning again and remove every other element
+# [!2, 6] = [6]
+#
+# Write a method that takes an array of elements. It should return the only
+# element that would remain after filtering the array in the manner described
+# above.
+#
+# Examples:
+#
+# ping_pong_filter([1, 2, 3, 4, 5, 6, 7, 8]) # => 6
+#
+# ping_pong_filter([1, 2, 3, 4]) # => 2
+#
+# ping_pong_filter([3, 5, 7, 8, 9, 2]) # => 8
+
+
+
+function ping_pong_filter(array){
+    
+    while (array.length > 1) 
+    {
+        
+        var result = []; //[6]
+    
+        for (var i = 0; i < array.length; i += 2)
+        {
+            var num = array[i + 1]; 
+            
+            result.push(num);
+        }
+        
+        result = result.reverse(); // [2, 6]
+   
+    }
+    
+    return result[0];
+}
+
+
+
+
+
+#### Next Prime ####
+# Given an array of numbers, replace each prime number in the array with
+# the next prime number, e.g. 7 is replaced by 11.
+#
+# Constraint: You may not use a library to find prime numbers.
+#
+# examples:
+# next_prime([11,13,17]) #=> [13, 17, 19]
+# next_prime([4,6,8,10]) #=> [4,6,8,10]
+# next_prime([2,5,4,7]) #=> [3,7,4,11]
+
+function isPrime(num){
+    if (num < 2){
+        return false;
+    }
+    
+    for (var i = 2; i < num; i++){
+        if (num % i === 0){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function primeAfterNumber(prime){ // number === 17;
+    
+    for (var i = 1; true; i++){
+        var nextNumber = number + i; // number + 2 === 19
+        if (isPrime(nextNumber)){ // true!
+            return nextNumber;
+        }
+    }
+}
+
+
+function next_prime(array){
+    var results = [];
+    
+    for (var i = 0; i < array.length; i++){
+        var number = array[i];
+        
+        if (isPrime(number)){
+            var nextPrime = primeAfterNumber(number);
+            results.push(nextPrime);
+        } else {
+            results.push(number);
+        }
+    }
+    
+    return results;
+}
+

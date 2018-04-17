@@ -1,0 +1,77 @@
+// repeatedChars
+//
+// Write a function `repeatedChars(word) `which takes a string
+// and returns an array of all the characters in word that
+// appear in a streak (i.e. more than once consecutively).
+// This should be case-sensitive.
+//
+// Examples:
+// repeatedChars("aaabaa") => ["a", "a"]
+// repeatedChars("mississippi") => ["s", "s", "p"]
+// repeatedChars("SSassSS") => ["S", "s", "S"]
+
+
+
+function repeatedChars1(word) {
+  var newArr = [];
+  console.log(word);
+
+  for (var i = 0; i < word.length - 1; i++) {
+    var current = word[i];
+    var next = word[i+1];
+    var back = word[i-1];
+    console.log(current,next,back);
+
+    if (current === next && current !== back) {
+      newArr.push(current);
+    }
+  }
+
+  return newArr;
+}
+
+
+console.log(repeatedChars1("aaabaa"));// => ["a", "a"]
+console.log(repeatedChars1("mississippi"));// => ["s", "s", "p"]
+console.log(repeatedChars1("SSassSS"));// => ["S", "s", "S"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+function repeatedChars(word) {
+    var newArr = [];
+    
+    for (var i = 0; i < word.length - 1; i++) {
+        var char1 = word[i];
+        var char2 = word[i+1];
+        
+        if (char1 === char2) {
+            newArr.push(char1);
+        } 
+    }
+    
+    return newArr;
+}
+
+// repeatedChars Solution //////////////////////////////////////////////////////
+function repeatedChars(word) {
+  var repeats = [];
+
+  for (var i = 0; i < word.length; i++) {
+    if (word[i] === word[i + 1] && word[i] !== word[i - 1]) {
+      repeats.push(word[i]);
+    }
+  }
+
+  return repeats;
+}
+////////////////////////////////////////////////////////////////////////////////

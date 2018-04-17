@@ -1,0 +1,199 @@
+/*------------------------------------------------------------------------------
+// evenEqualOdd
+//
+// Write a function `evenEqualOdd(arr)` that takes in an array of numbers. The function
+// should return true if the sum of all even numbers of the array is equal to the sum
+// of all odd numbers of the array. The function should return false otherwise.
+//
+// Examples:
+//
+// evenEqualOdd([5, 10, 3, 9, 1, 8]); // => true
+// evenEqualOdd([3, 3, 4, 4, 1, 1]); // => true
+// evenEqualOdd([1, 2, 3, 6]); // => false
+// evenEqualOdd([10, 2, 5, 5]); // => false
+------------------------------------------------------------------------------*/
+
+function evenEqualOdd(arr) {  // evenEqualOdd([5, 10, 3, 9, 1, 8]); // => true
+    var evenSum = 0; //10+8 = 18
+    var oddSum = 0; //5+3+9+1 = 18
+    
+    for (var i = 0; i < arr.length; i++) {
+        var currentNum = arr[i];        //8
+        
+        if (isEven(currentNum)) {       
+            evenSum += currentNum;
+        } else {
+            oddSum += currentNum;   
+        }
+    }
+    
+    
+    return evenSum === oddSum; //true
+}
+
+
+function isEven(n) {
+    return n % 2 === 0;
+}
+
+
+// You'll take an array, example: [3, 15, 5, 6, 2].
+// Make multiple counters, one per number from 2 to 9.
+
+// For each number in the array, go through all the counters and if the 
+// number is divisble by the number, increment the counter.
+
+// Return the biggest of the counters. 
+
+var num = {"2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0};
+
+for (var i = 2; i < 5; i++) {
+    num[`${i}`] = 0;
+}
+
+
+function biggestCounter(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        var num = arr[i];
+        
+        for 
+    }
+}
+
+
+
+
+
+
+
+
+/*------------------------------------------------------------------------------
+// bestScoresSum
+//
+// Write a function `bestScoresSum(arr)` that takes an array of objects as an argument.
+// See the `people` arrays for an example of how the input data will look. The function
+// should return the person's initials whose scores sum to the highest number.
+// You can assume that there is at least one person in the input array.
+//
+// Examples:
+//
+// var people1 = [
+//   { name: "April Ludgate", scores : [1,2,3,4] },
+//   { name: "Andy Dwyer", scores : [10,3,2] },
+//   { name: "Leslie Knope", scores : [5,7,9] },
+//   { name: "Ben Wyatt", scores : [4,4,4,4] }
+// ];
+//
+// var people2 = [
+//   { name: "Ron Swanson", scores : [10] },
+//   { name: "Anne Perkins", scores : [4] }
+// ];
+//
+// bestScoresSum(people1); // =>'LK'
+// bestScoresSum(people2); // => 'RS'
+------------------------------------------------------------------------------*/
+
+// var people1 = [
+//   { name: "April Ludgate", scores : [1,2,3,4] }, //10
+//   { name: "Andy Dwyer", scores : [10,3,2] }, //15
+//   { name: "Leslie Knope", scores : [5,7,9] }, //21
+//   { name: "Ben Wyatt", scores : [4,4,4,4] } //16
+// ];
+
+function bestScoresSum(arr) {
+    var highest = 0; //21
+    var name = ""; //"leslie Knope"
+    
+    for (var i = 0; i < arr.length; i++) {
+        var student = arr[i];             //{ name: "Ben Wyatt", scores : [4,4,4,4] } //16
+        var studentName = student.name;   //"Ben Wyatt"
+        var studentScores = student.scores; //[4,4,4,4]
+        var total = getSum(studentScores); //16
+        
+        if (total > highest) {  
+            highest = total;
+            name = studentName;
+        }
+    }
+    
+    var names = name.split(" "); //["Leslie", "Knope"]
+    // return names[0][0] + names[1][0]
+    
+    var initials = ""; //LK
+    
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i];  //knope
+        initials += name[0]; //K
+    }
+    
+    return initials; //LK
+}
+
+function getSum(arr) {
+    var sum = 0;
+    
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    
+    return sum;
+}
+
+
+
+
+
+
+/*------------------------------------------------------------------------------
+// primeRangeSum
+//
+// Write a function `primeRangeSum(num1, num2)` that takes two numbers and returns
+// the sum of all prime numbers between start and end (inclusive).
+//
+// Examples:
+//
+// primeRangeSum(10, 20); // => 60
+// primeRangeSum(20, 10); // => 60
+// primeRangeSum(20, 29); // => 52
+// primeRangeSum(50, 41); // => 131
+------------------------------------------------------------------------------*/
+
+
+
+
+function isPrime(n) {
+    if (n <= 1) {
+        return false; 
+    }
+    
+    for (var i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    
+    return true; 
+}
+
+function primeRangeSum(num1, num2) {
+    var startIndex = num1;
+    var endIndex = num2;
+    
+    if (startIndex > endIndex) {
+        startIndex = num2;
+        endIndex = num1;
+    }
+    
+    var sum = 0;
+    for (var i = startIndex; i <= endIndex; i++) {
+        if (isPrime(i)) {
+            sum += i;
+        }
+    }
+    return sum; 
+}
+
+// primeRangeSum(10, 20); // => 60
+// primeRangeSum(20, 10); // => 60 (10,20) //11,13,17,19 
+// primeRangeSum(20, 29); // => 52
+// primeRangeSum(50, 41); // => 131

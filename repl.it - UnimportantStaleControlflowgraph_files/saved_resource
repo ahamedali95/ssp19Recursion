@@ -1,0 +1,20 @@
+/* This CSS resource incorporates links to font software which is the
+   valuable copyrighted property of Type Network, Inc. and/or their
+   suppliers. You may not attempt to copy, install, redistribute,
+   convert, modify or reverse engineer this font software. Please
+   contact Type Network with any questions: www.typenetwork.com */
+
+
+	
+@font-face {
+	font-family: "Miller Text Rom";
+	font-weight: Normal;
+	font-style: Normal;
+	src: url("//cloud.typenetwork.com/licenseWeb/14019/fontfile/eot/?bd06a3b7f18f3ed9eaddfb5d7e9d8e4b165d3bc5");
+        src: url("//cloud.typenetwork.com/licenseWeb/14019/fontfile/eot/?bd06a3b7f18f3ed9eaddfb5d7e9d8e4b165d3bc5#iefix") format("embedded-opentype"),
+             url("//cloud.typenetwork.com/licenseWeb/14019/fontfile/woff2/?bd06a3b7f18f3ed9eaddfb5d7e9d8e4b165d3bc5") format("woff2"),
+             url("//cloud.typenetwork.com/licenseWeb/14019/fontfile/woff/?bd06a3b7f18f3ed9eaddfb5d7e9d8e4b165d3bc5") format("woff");
+
+}
+	
+

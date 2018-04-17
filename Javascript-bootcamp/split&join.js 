@@ -1,0 +1,23 @@
+// Write a function `wordPeriods(sentence)` that takes in a sentence and returns a new
+// sentence where every word has period after it.
+//
+// Examples:
+//
+// wordPeriods('hello world'); // => 'hello. world.'
+// wordPeriods('what is the weather today'); // => 'what. is. the. weather. today.'
+
+function wordPeriods(sentence)
+{
+	var concatenated = "";
+	var spaceSplit = sentence.split(" ");
+	console.log(spaceSplit);
+	for(var i = 0; i <= spaceSplit.length -1 ; i++)
+	{
+		concatenated += spaceSplit[i] + ". "; 
+
+		
+	}
+	return concatenated;
+}
+
+console.log(wordPeriods(('what is the weather today')));
